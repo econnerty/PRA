@@ -1,1 +1,1 @@
-Pairwise Reservoir Approximation and its multivariate counterpart, Multivariate Reservoir Approximation are reservoir network based effective connectivity estimators for EEG data.
+Pairwise Reservoir Approximation and its multivariate counterpart--Multivariate Reservoir Approximation--are reservoir network based effective connectivity estimators for EEG data.
