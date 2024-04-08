@@ -15,7 +15,7 @@ def normr(matrix):
     normalized_matrix = matrix / row_norms[:, np.newaxis]
     return normalized_matrix
 
-def MVRA(var_dat=None,sampling_frequency=250,num_reservoir=15,leaky_rate=0.5):
+def MVRA(var_dat=None,sampling_frequency=250,num_reservoir=2,leaky_rate=0.5):
     # Initialize some example data (Replace these with your actual data)
     # Reading xarray Data from NetCDF file
 
