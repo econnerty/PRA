@@ -13,9 +13,6 @@ class SimpleESN:
         self.W_out = None
         self.alpha = alpha
         self.leaky_rate = leaky_rate
-    
-    def sigmoid(self, x):
-        return 1 / (1 + np.exp(-x))
 
     def initialize_weights(self):
         # Internal weights
@@ -32,9 +29,8 @@ class SimpleESN:
 
     def update_state(self, input):
         # Include bias term in the pre-activation signal
-        pre_activation = (1-self.leaky_rate) * np.dot(self.W, self.state) + self.leaky_rate * (np.dot(self.W_in, input) + self.W_bias)
-        self.state = np.tanh(pre_activation)
-        #self.state = self.leaky_rate * updated_state + (1-self.leaky_rate) * self.state
+        updated_state = np.tanh(np.dot(self.W, self.state) + np.dot(self.W_in, input) + self.W_bias)
+        self.state = self.leaky_rate * updated_state + (1 - self.leaky_rate) * self.state
 
     
     def predict(self, inputs):

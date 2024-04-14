@@ -58,7 +58,7 @@ def MVRA(var_dat=None,sampling_frequency=250,num_reservoir=2,leaky_rate=0.5):
         # Add a column of ones to the regressor matrix
         phix = np.insert(phix, 0, 1, axis=1)
 
-        regressor = Ridge(alpha=10)
+        regressor = Ridge(alpha=8.0)
         #W = inverse @ y
         W = regressor.fit(phix, y).coef_.T
         y_pred = phix @ W
@@ -86,9 +86,5 @@ def MVRA(var_dat=None,sampling_frequency=250,num_reservoir=2,leaky_rate=0.5):
     Coupling_strengths = normc(Coupling_strengths)
     #Min max normalize the array
     Coupling_strengths = (Coupling_strengths - Coupling_strengths.min()) / (Coupling_strengths.max() - Coupling_strengths.min())
-
-    #Plot the coupling strengths and save
-    sns.heatmap(Coupling_strengths)
-    plt.savefig(f'Coupling_strengths.png')
 
     return Coupling_strengths
